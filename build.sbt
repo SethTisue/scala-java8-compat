@@ -19,6 +19,8 @@ def osgiExport(scalaVersion: String, version: String) = {
 }
 
 lazy val commonSettings = Seq(
+  crossScalaVersions := Seq("2.13.6", "2.12.15", "2.11.12", "3.0.2"),
+  scalaVersion := crossScalaVersions.value.head,
   versionPolicyIntention := Compatibility.BinaryAndSourceCompatible,
   Compile / unmanagedSourceDirectories ++= {
     (Compile / unmanagedSourceDirectories).value.flatMap { dir =>
